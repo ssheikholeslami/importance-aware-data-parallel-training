@@ -1,0 +1,11 @@
+BootStrap: docker
+From: pytorch/pytorch:1.10.0-cuda11.3-cudnn8-devel
+# From: pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel
+# From: pytorch/pytorch:1.10.1=py3.8_cuda11.3_cudnn8.2.0_0
+# From: pytorch/pytorch:1.12.0-cuda11.3-cudnn8-devel
+
+%files
+    ./requirements.txt /requirements.txt
+
+%post
+    pip3 install -r /requirements.txt
