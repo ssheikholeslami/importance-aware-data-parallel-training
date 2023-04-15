@@ -1,3 +1,11 @@
+##############################
+#
+# Code for "The Impact of Importance-aware Dataset Partitioning on Data-parallel Training of Deep Neural Networks".
+# Authors: Sina Sheikholeslami, Amir H. Payberah, Tianze Wang, Jim Dowling, Vladimir Vlassov
+# Publication Date: April 2023
+# In case of questions contact sinash@kth.se
+#
+#############################
 import os
 from datetime import datetime, timedelta
 import argparse

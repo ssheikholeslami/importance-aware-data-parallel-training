@@ -10,6 +10,9 @@ WARMUPS=( 10 15 20 30 40 60 )
 
 # number of interval epochs (E_interval)
 INTERVALS=( 1 5 8 10 15 30 )
+
+# "roundrobin" corresponds to the "Stripes" heuristic, and "steps" corresponds to the "Blocks" heuristic
+
 #----------------------------------------------------------------------
 #Baseline 1: ResNet-18 on CIFAR-10 (Baseline for Tables 1-3)
 DATASET='cifar10'
@@ -21,8 +24,6 @@ do
     python refactored.py -n 1 -g 4 -nr 0 --description 'baseline1' --once-or-interval once --total-epochs 100 --warmup-epochs 2 --ignore-epochs 1 --interval-epochs 0 --seed $SEED --heuristic $HEURISTIC --measure variance --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
 done
 
-
-
 #----------------------------------------------------------------------
 #Baseline 2: ResNet-34 on CIFAR-10 (Baseline for Table 4)
 DATASET='cifar10'
@@ -33,7 +34,6 @@ for SEED in "${SEEDS[@]}"
 do
     python refactored.py -n 1 -g 4 -nr 0 --description 'baseline2' --once-or-interval once --total-epochs 100 --warmup-epochs 2 --ignore-epochs 1 --interval-epochs 0 --seed $SEED --heuristic $HEURISTIC --measure variance --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
 done
-
 
 #----------------------------------------------------------------------
 #Baseline 2: ResNet-34 on CIFAR-100 (Baseline for Table 5)
