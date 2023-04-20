@@ -12,7 +12,7 @@ def calculate_metric_measure(metrics_tensor: Tensor, measure: str) -> dict:
 
 
     variances_means = torch.var_mean(metrics_tensor, dim=1)
-    examples_importances = np.zeros_like(variances_means)
+    examples_importances = np.zeros_like(variances_means[1].detach().cpu().numpy())
     if measure.lower() == 'average':
         examples_importances = variances_means[1].detach().cpu().numpy()
     elif measure.lower() == 'variance':
