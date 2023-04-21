@@ -21,7 +21,7 @@ HEURISTIC='none'
 
 for SEED in "${SEEDS[@]}"
 do
-    python refactored.py -n 1 -g 4 -nr 0 --description 'baseline1' --once-or-interval once --total-epochs 100 --warmup-epochs 2 --ignore-epochs 1 --interval-epochs 0 --seed $SEED --heuristic $HEURISTIC --measure variance --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
+    python dpt.py -n 1 -g 4 -nr 0 --description 'baseline1' --once-or-interval once --total-epochs 100 --warmup-epochs 2 --ignore-epochs 1 --interval-epochs 0 --seed $SEED --heuristic $HEURISTIC --measure variance --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
 done
 
 #----------------------------------------------------------------------
@@ -32,7 +32,7 @@ HEURISTIC='none'
 
 for SEED in "${SEEDS[@]}"
 do
-    python refactored.py -n 1 -g 4 -nr 0 --description 'baseline2' --once-or-interval once --total-epochs 100 --warmup-epochs 2 --ignore-epochs 1 --interval-epochs 0 --seed $SEED --heuristic $HEURISTIC --measure variance --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
+    python dpt.py -n 1 -g 4 -nr 0 --description 'baseline2' --once-or-interval once --total-epochs 100 --warmup-epochs 2 --ignore-epochs 1 --interval-epochs 0 --seed $SEED --heuristic $HEURISTIC --measure variance --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
 done
 
 #----------------------------------------------------------------------
@@ -43,7 +43,7 @@ HEURISTIC='none'
 
 for SEED in "${SEEDS[@]}"
 do
-    python refactored.py -n 1 -g 4 -nr 0 --description 'baseline3' --once-or-interval once --total-epochs 100 --warmup-epochs 2 --ignore-epochs 1 --interval-epochs 0 --seed $SEED --heuristic $HEURISTIC --measure variance --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
+    python dpt.py -n 1 -g 4 -nr 0 --description 'baseline3' --once-or-interval once --total-epochs 100 --warmup-epochs 2 --ignore-epochs 1 --interval-epochs 0 --seed $SEED --heuristic $HEURISTIC --measure variance --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
 done
 
 #----------------------------------------------------------------------
@@ -59,7 +59,7 @@ do
     do
         for SEED in "${SEEDS[@]}"
         do
-            python refactored.py -n 1 -g 4 -nr 0 --description 'experiment' --once-or-interval interval --total-epochs 100 --warmup-epochs $WARMUP --ignore-epochs 5 --interval-epochs $INTERVAL --seed $SEED --heuristic $HEURISTIC --measure $MEASURE --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
+            python dpt.py -n 1 -g 4 -nr 0 --description 'experiment' --once-or-interval interval --total-epochs 100 --warmup-epochs $WARMUP --ignore-epochs 5 --interval-epochs $INTERVAL --seed $SEED --heuristic $HEURISTIC --measure $MEASURE --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
         done
     done
 done
@@ -77,7 +77,7 @@ do
     do
         for SEED in "${SEEDS[@]}"
         do
-            python refactored.py -n 1 -g 4 -nr 0 --description 'experiment' --once-or-interval interval --total-epochs 100 --warmup-epochs $WARMUP --ignore-epochs 5 --interval-epochs $INTERVAL --seed $SEED --heuristic $HEURISTIC --measure $MEASURE --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
+            python dpt.py -n 1 -g 4 -nr 0 --description 'experiment' --once-or-interval interval --total-epochs 100 --warmup-epochs $WARMUP --ignore-epochs 5 --interval-epochs $INTERVAL --seed $SEED --heuristic $HEURISTIC --measure $MEASURE --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
         done
     done
 done
@@ -95,7 +95,7 @@ do
     do
         for SEED in "${SEEDS[@]}"
         do
-            python refactored.py -n 1 -g 4 -nr 0 --description 'experiment' --once-or-interval interval --total-epochs 100 --warmup-epochs $WARMUP --ignore-epochs 5 --interval-epochs $INTERVAL --seed $SEED --heuristic $HEURISTIC --measure $MEASURE --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
+            python dpt.py -n 1 -g 4 -nr 0 --description 'experiment' --once-or-interval interval --total-epochs 100 --warmup-epochs $WARMUP --ignore-epochs 5 --interval-epochs $INTERVAL --seed $SEED --heuristic $HEURISTIC --measure $MEASURE --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
         done
     done
 done
@@ -113,7 +113,7 @@ do
     do
         for SEED in "${SEEDS[@]}"
         do
-            python refactored.py -n 1 -g 4 -nr 0 --description 'experiment' --once-or-interval interval --total-epochs 100 --warmup-epochs $WARMUP --ignore-epochs 5 --interval-epochs $INTERVAL --seed $SEED --heuristic $HEURISTIC --measure $MEASURE --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
+            python dpt.py -n 1 -g 4 -nr 0 --description 'experiment' --once-or-interval interval --total-epochs 100 --warmup-epochs $WARMUP --ignore-epochs 5 --interval-epochs $INTERVAL --seed $SEED --heuristic $HEURISTIC --measure $MEASURE --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
         done
     done
 done
@@ -131,7 +131,7 @@ do
     do
         for SEED in "${SEEDS[@]}"
         do
-            python refactored.py -n 1 -g 4 -nr 0 --description 'experiment' --once-or-interval interval --total-epochs 100 --warmup-epochs $WARMUP --ignore-epochs 5 --interval-epochs $INTERVAL --seed $SEED --heuristic $HEURISTIC --measure $MEASURE --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
+            python dpt.py -n 1 -g 4 -nr 0 --description 'experiment' --once-or-interval interval --total-epochs 100 --warmup-epochs $WARMUP --ignore-epochs 5 --interval-epochs $INTERVAL --seed $SEED --heuristic $HEURISTIC --measure $MEASURE --shuffle yes  --batch-size $BATCH_SIZE --dataset $DATASET --model $MODEL;
         done
     done
 done
