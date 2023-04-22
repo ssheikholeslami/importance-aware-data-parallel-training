@@ -14,3 +14,6 @@ To run the code without any issues we recommend that you create a Python virtual
 - if you want to re-run the exact same experiments in the paper yourself, please remember that you will need a worker with 4 Nvidia GPUs (please refer to Section 5.1 of the paper for our experimental setup) and it will take around 2 weeks in total to finish all the experiments. To run the experiments, simply execute the `run-experiments.sh` script, e.g., by `nohup ./run-experiments.sh &> logs.txt`.
 - if you are interested in running only a specific set of experiments, you can comment out or modify the `run-experiments.sh` script.
 - if you have a [Weights & Biases (W&B)](https://wandb.ai/) account, you can modify the code in `dpt.py` by searching for and uncommenting the lines that have `wandb` to manage the experiments using W&B.
+
+# Acknowledgments
+This work has been supported by the ExtremeEarth project funded by European Union’s Horizon 2020 Research and Innovation Programme under Grant Agreement No. 825258. The computations for some of the experiments were enabled by resources provided by the National Academic Infrastructure for Supercomputing in Sweden (NAISS) and the Swedish National Infrastructure for Computing (SNIC) at C3SE partially funded by the Swedish Research Council through grant agreement no. 2022-06725 and no. 2018-05973.
