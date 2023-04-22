@@ -1,5 +1,5 @@
 ﻿
-This repository cotains the supplementary material for "The Impact of Importance-aware Dataset Partitioning on Data-parallel Training of Deep Neural Networks" that is to appear in DAIS 2023.
+This repository contains the supplementary material for "The Impact of Importance-aware Dataset Partitioning on Data-parallel Training of Deep Neural Networks" that is to appear in DAIS 2023.
 
 # Pre-requisites
 ### GPUs
