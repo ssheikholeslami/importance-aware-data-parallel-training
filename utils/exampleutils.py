@@ -5,8 +5,6 @@ import numpy as np
 
 
 def merge_worker_matrices(num_parts, save_dir, base_matrix_path):
-    # TODO make the pathing pretty
-
     base_matrix = torch.load(base_matrix_path)
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     examples_losses = torch.zeros(base_matrix.shape, device=device)

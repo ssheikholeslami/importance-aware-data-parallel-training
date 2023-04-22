@@ -3,7 +3,8 @@
 # Code for "The Impact of Importance-aware Dataset Partitioning on Data-parallel Training of Deep Neural Networks".
 # Authors: Sina Sheikholeslami, Amir H. Payberah, Tianze Wang, Jim Dowling, Vladimir Vlassov
 # Publication Date: April 2023
-# In case of questions contact sinash@kth.se
+# In case of questions open an issue on https://github.com/ssheikholeslami/policy-based-dataset-partitioning
+# or contact sinash@kth.se
 #
 #############################
 import os
@@ -25,10 +26,6 @@ from torch.utils.tensorboard import SummaryWriter
 
 from torchinfo import summary
 
-
-# example runtime arguments
-# -n 1 -g 4 -nr 0 --total-epochs 10 --warmup-epochs 5 --seed 0 --heuristic constant
-# -n 1 -g 4 -nr 0 --total-epochs 10 --warmup-epochs 5 --seed 0 --heuristic none
 
 from samplers import importance_sampler
 from utils import datasetutils, exampleutils
@@ -288,7 +285,6 @@ def train(gpu, experiment_name, args):
                                                sampler=train_sampler,
                                                )
 
-    # TODO add test_dataset, test_sampler and test_loader
     test_dataset = ExperimentDataset(
         root='./data', train=False, download=True, transform=transform)
 
@@ -310,7 +306,6 @@ def train(gpu, experiment_name, args):
     current_overall_epoch = 0
 
     for epoch in range(args.warmup_epochs):
-        # TODO refactor into function since it's being reused
         cumulative_overhead = timedelta()
         train_sampler.set_epoch(epoch)
         # train_heuristic_sampler.set_epoch(epoch)
@@ -352,9 +347,7 @@ def train(gpu, experiment_name, args):
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
-
-            # if (i + 1) % 100 == 0 and gpu == 0:
-            #     print(f'Epoch [{epoch+1}/{args.total_epochs}], Step [{i+1}/{total_steps}], Loss: {loss.item():.4f}')                
+               
         current_overall_epoch+=1
 
 
@@ -379,7 +372,6 @@ def train(gpu, experiment_name, args):
                     total += labels.size(0)
                     correct += (predicted == labels).sum().item()
                     accuracy = 100 * correct / total
-            # print("Number of mini-batches: {0}, last mini-batch size: {1}".format(i, len(indices)))
             print(f"Test Accuracy: {accuracy:.2f}%")
             tensorboard_writer.add_scalar("Accuracy/test", accuracy, epoch+1)
             tensorboard_writer.flush()
@@ -432,7 +424,6 @@ def train(gpu, experiment_name, args):
         starting_epoch = current_overall_epoch
         for epoch in range(starting_epoch, starting_epoch+args.interval_epochs):
         # for epoch in range(args.warmup_epochs, args.total_epochs):
-            # TODO refactor into function since it's being reused
             cumulative_overhead = timedelta()
             train_sampler.set_epoch(epoch)
             for i, data in enumerate(train_loader, 0):
@@ -471,7 +462,7 @@ def train(gpu, experiment_name, args):
                 loss.backward()
                 optimizer.step()
 
-            current_overall_epoch +=1 # FIXME would this sabotage the for loop condition?
+            current_overall_epoch +=1
 
             if gpu == 0:
                 # UNCOMMENT FOR WANDB
@@ -548,8 +539,6 @@ def prepare_allocations(examples_losses, rank, group_gloo, current_overall_epoch
                                for worker in range(args.world_size)}
 
         if args.heuristic.lower() == 'roundrobin':
-            # TODO make sure uneven datasets are accounted for
-            # TODO do everything in one pass, e.g., using itertools
             for index, example in enumerate(sorted_indices):
                 examples_to_workers[index % args.world_size].append(example)
         elif args.heuristic.lower() == 'steps':

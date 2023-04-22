@@ -47,10 +47,6 @@ class ConstantSampler(Sampler[int]):
         self.indices_1 = [] # indices on epoch 1
 
 
-        # handle unevenly divisible datasets
-        # XXX uneven portions may cause deadlock and hanging of collective operations
-        # self.num_samples: number of samples per each partition (replica)
-        # TODO this can be improved by reusing the remainder and subtracting it from len(dataset)
         if self.drop_last and len(self.dataset) % self.num_replicas != 0:
             # split to nearest available length
             self.num_samples = math.ceil(
@@ -63,7 +59,6 @@ class ConstantSampler(Sampler[int]):
         self.shuffle = shuffle
         self.seed = seed
 
-        # TODO rewrite this later with NoneType checking to avoid bugs
         if len(self.examples_allocations) == 0:
             self.examples_allocations = {}
             portion_of_each_worker = int(self.total_size / self.num_replicas)
@@ -71,14 +66,11 @@ class ConstantSampler(Sampler[int]):
             for i in range(0, self.num_replicas):
                 self.examples_allocations[i] = all_indices[i * portion_of_each_worker:(i + 1) * portion_of_each_worker]
 
-            # print(self.examples_allocations)            
-
     def __iter__(self) -> Iterator[T_co]:
         """Return an iterator to be used by the DataLoader.
         The difference between this implementation and DistributedSampler is that each worker only takes care of its own indices.
         For unevenly divisable datasets, if workers have to add examples, they add from their own examples
         Also it uses Python's `random` rather than PyTorch's `Generator`."""
-        # TODO check to make sure of deterministic behavior since random is being used rather than Generator
         if self.shuffle:
             # deterministically shuffle based on epoch and seed
 

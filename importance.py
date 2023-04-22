@@ -23,8 +23,6 @@ def calculate_metric_measure(metrics_tensor: Tensor, measure: str) -> dict:
         else:
             examples_importances = variances_means[0].detach().cpu().numpy()
     
-    # TODO add test to ensure examples_means.argmax() is the first item of the sorted dict
-    # print(examples_means.argmax())
     examples_dict = {index : examples_importances[index] for index in range(0, len(examples_importances))}
     return examples_dict
     
