@@ -1,3 +1,4 @@
+#!/bin/bash
 # Use this script to run a small experiment to test the functionality of the system.
 # -g specifies the number of GPUs
 
