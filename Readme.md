@@ -1,11 +1,11 @@
 ﻿
-This repository contains the supplementary material for "The Impact of Importance-aware Dataset Partitioning on Data-parallel Training of Deep Neural Networks" that is to appear in DAIS 2023.
+This repository contains the supplementary material for "The Impact of Importance-aware Dataset Partitioning on Data-parallel Training of Deep Neural Networks" published in [DAIS 2023](https://link.springer.com/chapter/10.1007/978-3-031-35260-7_5). Our Author's version of the paper can be found [here](https://github.com/ssheikholeslami/importance-aware-data-parallel-training/blob/master/importance_aware_dpt_authors_version.pdf).
 
 # Pre-requisites
 ### GPUs
-As this system deals with data-parallel training of deep neural networks, you will need multiple CUDA-capable GPUs to run the code. The experiments in the paper where done using 4 Nvidia GPUs on a single machine running Ubuntu 18.04 LTS.
+As this system deals with data-parallel training of deep neural networks, you will need multiple CUDA-capable GPUs to run the code. The experiments in the paper were done using 4 Nvidia GPUs on a single machine running Ubuntu 18.04 LTS.
 ### Python Version
-To run the code without any issues we recommend that you create a Python virtual environment with **Python 3.8**, e.g., with `python3.8 -m venv env-name`, activate the environment using `source env-name/bin/activate` and then clone the repo and use `pip install -r requirements.txt` to install the specific versions of the required libraries. 
+To run the code without any issues, we recommend that you create a Python virtual environment with **Python 3.8**, e.g., with `python3.8 -m venv env-name`, activate the environment using `source env-name/bin/activate` and then clone the repo and use `pip install -r requirements.txt` to install the specific versions of the required libraries. 
 
 # Running the Experiments
 
