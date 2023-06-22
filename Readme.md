@@ -24,7 +24,9 @@ To cite this paper/software, you can use:
   booktitle={IFIP International Conference on Distributed Applications and Interoperable Systems},
   pages={74--89},
   year={2023},
-  organization={Springer}
+  organization={Springer},
+  doi={10.1007/978-3-031-35260-7_5},
+  url={https://doi.org/10.1007/978-3-031-35260-7_5}
 }
 ```
 
